@@ -1,0 +1,37 @@
+#### 使用 Dropbox 同步
+
+编辑 installation.yaml 文件，添加一行：
+
+```
+sync_dir: '/Users/username/Dropbox/sync/Rime'
+```
+
+#### 在不同电脑间进行同步
+
+同步机制可以理解为这样的：
+比如两者的同步文件夹都为 Rime（通过 Dropbox 等同步工具同步），在这之下就会生成两个以 installation_id 命名的文件夹，分别存放了两者的配置，所以两者之间的配置是不会共享的，自己同步自己的。但是用户词典是相互同步的（显然需要这个功能）
+
+举个同步的例子（我在 Mac 已经进行了相关的配置，也拥有了相当的词库，我又在一台 Windows 上安装了小狼毫输入法，想使用 Mac 下相同的配置和词库）：
+
+1. 在 Windows 上安装小狼毫输入法
+
+2. 使用 Dropbox 等工具将鼠须管的同步文件夹同步到这台 Windows 上（例如为 Y:\Rime）
+
+3. 打开小狼毫的用户文件夹（开始菜单中可直接打开），修改 installation.yaml 文件，添加一行
+
+```
+sync_dir: Y:\Rime
+```
+
+3. **注意** 不要在路径两边加上双引号，不然无法同步
+
+4. 在开始菜单中点击小狼毫的用户资料同步
+
+5. 将鼠须管的配置文件复制到小狼毫的用户资料文件夹中，例如如下的「小鹤双拼·语句流」的方案，需要复制的配置文件有：
+
+	* double_pinyin_flypy_fluency.schema.yaml
+	* chinese_contain_english.schema.yaml
+	* chinese_contain_english.dict.yaml
+	* default.custom.yaml
+
+6. 重新部署小狼毫
